@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block conteudo%}
+<table border="1">
+    <tr>
+        <th>Nome</th>
+        <th>Pontos de Vida</th>
+        <th>Pontos de Ataque</th>
+        <th>Pontos de Defesa</th>
+    </tr>
+    {% for objeto in todos_pokemons %}
+        <tr>
+            <td>{{ objeto.nome }}</td>
+            <td>{{ objeto.pontos_de_vida }}</td>
+            <td>{{ objeto.pontos_de_ataque }}</td>
+            <td>{{ objeto.pontos_de_defesa }}{{ objeto.ataque }}</td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock%}

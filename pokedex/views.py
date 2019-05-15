@@ -9,4 +9,4 @@ def mostrarPokemons(request):
     contexto = {
         "todos_pokemons": pokemons,
     }
-    return render(request, 'basico.html', contexto)
+    return render(request, 'pokemon.html', contexto)
