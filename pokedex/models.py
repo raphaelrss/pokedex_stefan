@@ -18,9 +18,6 @@ class Tipo(models.Model):
     def __str__(self):
         return self.nome
 
-    def __int__(self):
-        return self.id
-
 
 class Pokemon(models.Model):
     imagem = models.FileField(upload_to='fotos/')
