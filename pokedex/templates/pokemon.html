@@ -1,33 +1,13 @@
 {% extends "base.html" %}
-{% block conteudo%}
-<table class="table table-striped table-dark">
-    <tr>
-        <th scope="col">Id</th>
-        <th scope="col">Nome</th>
-        <th scope="col">Tipo(s)</th>
-        <th scope="col">Pontos de Vida</th>
-        <th scope="col">Pontos de Ataque</th>
-        <th scope="col">Pontos de Defesa</th>
-        <th scope="col">Ataque Especial</th>
-        <th scope="col">Defesa Especial</th>
-        <th scope="col">Imagem</th>
-    </tr>
-    {% for objeto in todos_pokemons %}
-    <tr scope="row">
-        <td>{{ objeto.id }}</td>
-        <td>{{ objeto.nome }}</td>
-        <td>{% for tipo in objeto.fk_tipo.all %}
-            {{tipo.nome}}<br/>
-            {% endfor %}
-        </td>
-        <td>{{ objeto.pontos_de_vida }}</td>
-        <td>{{ objeto.pontos_de_ataque }}</td>
-        <td>{{ objeto.pontos_de_defesa }}</td>
-        <td>{{ objeto.ataque_especial }}</td>
-        <td>{{ objeto.defesa_especial }}</td>
-
-        <td><img src="{{objeto.imagem.url}}" width="50" height="50"/></td>
-    </tr>
-    {% endfor %}
-</table>
-{% endblock%}
+{% block conteudo %}
+    <div class="card" style="width: 18rem;">
+        <img src="{{ pokemon.imagem.url }}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{ pokemon.nome }}</h5>
+            <p class="card-text">{{ pokemon.fk_categoria.nome }}</p>
+        </div>
+    </div>
+    <a href="{% url 'pokedex:mostrar_pokemons' %}">
+        <button>Voltar</button>
+    </a>
+{% endblock %}
