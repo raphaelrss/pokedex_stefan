@@ -4,7 +4,32 @@
         <img src="{{ pokemon.imagem.url }}" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">{{ pokemon.nome }}</h5>
-            <p class="card-text">{{ pokemon.fk_categoria.nome }}</p>
+            <p class="card-text"><b>Tipo: </b>
+                {% for dados in pokemon.fk_tipo.all %}
+                {{ dados.nome }}<br>
+                {% endfor %}
+            </p>
+            <p class="card-text"><b>Descrição: </b>
+                {% for dados in pokemon.fk_tipo.all %}
+                {{ dados.descricao_tipo }}<br>
+                {% endfor %}
+            </p>
+            <p class="card-text"><b>Habilidade: </b>
+                {% for dados in pokemon.fk_habilidade.all %}
+                {{ dados.nome }}<br>
+                {% endfor %}
+            </p>
+            <p class="card-text"><b>Descrição: </b>
+                {% for dados in pokemon.fk_habilidade.all %}
+                {{ dados.descricao_habilidade }}<br>
+                {% endfor %}
+            </p>
+            <p class="card-text"><b>HP: </b>{{ pokemon.pontos_de_vida }}</p>
+            <p class="card-text"><b>Ataque: </b>{{ pokemon.pontos_de_ataque }}</p>
+            <p class="card-text"><b>Velocidade: </b>{{ pokemon.pontos_de_velocidade }}</p>
+            <p class="card-text"><b>Defesa: </b>{{ pokemon.pontos_de_defesa }}</p>
+            <p class="card-text"><b>Ataque Especial: </b>{{ pokemon.ataque_especial }}</p>
+            <p class="card-text"><b>Defesa Especial: </b>{{ pokemon.defesa_especial }}</p>
         </div>
     </div>
     <a href="{% url 'pokedex:mostrar_pokemons' %}">
