@@ -18,24 +18,24 @@
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <p class="card-text"><b>Tipo: </b>
+                        <p class="card-text"><b>Tipo:<br></b>
                             {% for dados in pokemon.fk_tipo.all %}
                             {{ dados.nome }}<br>
                             {% endfor %}
                         </p>
-                        <p class="card-text"><b>Descrição: </b>
+                        <p class="card-text"><b>Descrição:<br></b>
                             {% for dados in pokemon.fk_tipo.all %}
                             {{ dados.descricao_tipo }}<br>
                             {% endfor %}
                         </p>
                     </div>
                     <div class="col">
-                        <p class="card-text"><b>Habilidade: </b>
+                        <p class="card-text"><b>Habilidade:<br></b>
                             {% for dados in pokemon.fk_habilidade.all %}
                             {{ dados.nome }}<br>
                             {% endfor %}
                         </p>
-                        <p class="card-text"><b>Descrição: </b>
+                        <p class="card-text"><b>Descrição:<br></b>
                             {% for dados in pokemon.fk_habilidade.all %}
                             {{ dados.descricao_habilidade }}<br>
                             {% endfor %}
@@ -52,8 +52,6 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
     </div>
     <a class="btn btn-danger btn-lg" href="{% url 'pokedex:mostrar_pokemons' %}" role="button">
