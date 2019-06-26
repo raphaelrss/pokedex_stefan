@@ -30,6 +30,7 @@ class Pokemon(models.Model):
     defesa_especial = models.PositiveIntegerField(verbose_name="Defesa Especial")
     fk_habilidade = models.ManyToManyField(Habilidade)
     fk_tipo = models.ManyToManyField(Tipo)
+    evolucao = models.ManyToManyField('Pokemon', null=True, blank=True)
     peso = models.FloatField(verbose_name="Peso")
 
     def __str__(self):

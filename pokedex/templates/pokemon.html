@@ -10,6 +10,15 @@
                     <div class="col-xl-4">
                         <br><br><br>
                         <h4 class="card-title">{{ pokemon.nome }}</h4>
+                        <p>
+                            {% for primeira_evolucao in pokemon.evolucao.all %}
+                                {{ primeira_evolucao.nome }}
+                                <a href="{% url 'pokedex:um_pokemon' idpokemon=primeira_evolucao.id %}"><img width="50" height="50" src="{{ primeira_evolucao.imagem.url }}"/></a>
+                            {% endfor %}
+                            {% for segunda_evolucao in primeira_evolucao.evolucao.all %}
+                                <a href="{% url 'pokedex:um_pokemon' idpokemon=segunda_evolucao.id %}"><img width="50" height="50" src="{{ segunda_evolucao.imagem.url }}"/></a>
+                            {% endfor %}
+                        </p>
                     </div>
                 </div>
             </div>
