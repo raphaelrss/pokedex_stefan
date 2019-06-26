@@ -4,8 +4,8 @@ from .models import *
 # Create your views here.
 
 
-def listarPokemons(request, ordenacao = "nome"):
-    pokemons = Pokemon.objects.all().order_by(ordenacao)
+def listarPokemons(request):
+    pokemons = Pokemon.objects.all()
 
     contexto = {
         "todos_pokemons": pokemons,
