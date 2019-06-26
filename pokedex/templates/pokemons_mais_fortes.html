@@ -1,23 +1,26 @@
 {% extends "base.html" %}
-{% block conteudo%}
-            <table>
-                <tr>
-                    <td><a class="btn btn-danger btn-lg" href="{% url 'pokedex:mostrar_pokemons' %}" role="button">
-                        Pokedex
-                    </a></td>
-                    <td></td>
-                    <td><a class="btn btn-danger btn-lg" href="{% url 'pokedex:time_forte' %}" role="button">
-                        Time
-                    </a></td>
-                    <td></td>
-                    <td><a class="btn btn-danger btn-lg" href="" role="button">
-                        Counter
-                    </a></td>
-                </tr>
-            </table>
-            <br>
-<table id="listar_pokemons" class="table table-striped table-dark">
+{% block conteudo %}
+
+<table>
     <tr>
+        <td><a class="btn btn-danger btn-lg" href="{% url 'pokedex:mostrar_pokemons' %}" role="button">
+            Pokedex
+        </a></td>
+        <td></td>
+        <td><a class="btn btn-danger btn-lg" href="{% url 'pokedex:time_forte' %}" role="button">
+            Time
+        </a></td>
+        <td></td>
+        <td><a class="btn btn-danger btn-lg" href="" role="button">
+            Counter
+        </a></td>
+    </tr>
+</table>
+<br>
+
+<table class="table table-striped table-dark">
+
+    <tr scope="row">
         <th scope="col">Id</th>
         <th scope="col">Nome</th>
         <th scope="col">Tipo(s)</th>
@@ -28,7 +31,7 @@
         <th scope="col">Defesa Especial</th>
         <th scope="col">Imagem</th>
     </tr>
-    {% for objeto in todos_pokemons %}
+    {% for objeto in pokemons_fortes %}
     <tr scope="row">
         <td>{{ objeto.id }}</td>
         <td>{{ objeto.nome }}</td>
@@ -45,5 +48,7 @@
         <td><a href="{% url 'pokedex:um_pokemon' idpokemon=objeto.id %}"><img src="{{objeto.imagem.url}}" width="50" height="50"/></a></td>
     </tr>
     {% endfor %}
+
 </table>
-{% endblock%}
+
+{% endblock %}

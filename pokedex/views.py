@@ -19,3 +19,11 @@ def umPokemon(request, idpokemon=None):
         "pokemon": pokemon,
     }
     return render(request, 'pokemon.html', contexto)
+
+
+def timeMaisForte(request):
+    mais_fortes = Pokemon.objects.order_by('-pontos_de_ataque')[:6]
+    contexto = {
+        "pokemons_fortes": mais_fortes,
+    }
+    return render(request, 'pokemons_mais_fortes.html', contexto)
